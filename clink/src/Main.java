@@ -55,6 +55,18 @@ public class Main {
         }
     }
 
+    private static int delete(String url, Map<String, String> header) throws IOException {
+        Headers headerbuild = Headers.of(header);
+        Request request = new Request.Builder()
+                .url(url)
+                .headers(headerbuild)
+                .delete()
+                .build();
+        try (Response response = client.newCall(request).execute()) {
+            return response.code();
+        }
+    }
+
     private static String generateRequestId(){
         return Integer.toString(rng.nextInt());
     }
@@ -134,7 +146,35 @@ public class Main {
         try {
             return post(CONTACT_ENDPOINT, map, json);
         } catch (IOException e) {
+            e.printStackTrace();
             return "Failed to POST Contact";
+        }
+    }
+
+    public static boolean removeContact(String contactId){
+        Map<String,String> map = addContactHeaders();
+        map.put("contactId",contactId);
+
+        try {
+            return delete(CONTACT_ENDPOINT+'/'+contactId, map) == 204;
+        } catch (IOException e) {
+            System.out.println("Failed to DELETE Contact");
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static void deleteAllContacts(){
+        String contacts = getContact(5,10,0,"contactName","desc");
+        String firstId = contacts.substring(contacts.indexOf(":")+2);
+        firstId = firstId.substring(0,firstId.indexOf("\""));
+        while(removeContact(firstId)) {
+            System.out.println("DELETE " + firstId);
+            contacts = getContact(5, 10, 0, "contactName", "desc");
+            System.out.println(contacts);
+            if(contacts.equals("[]")) break;
+            firstId = contacts.substring(contacts.indexOf(":") + 2);
+            firstId = firstId.substring(0, firstId.indexOf("\""));
         }
     }
 
@@ -204,7 +244,7 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void setup(boolean debug){
         Main ex = new Main();
 
         String salt = "dank";
@@ -213,11 +253,20 @@ public class Main {
         String accessToken = generateAccessToken(secret, salt);
         accessToken = accessToken.substring(accessToken.indexOf("token\":\"")+8);
         accessToken = accessToken.substring(0, accessToken.indexOf("\""));
-        System.out.println("TOKEN: " + accessToken);
+        if(debug) System.out.println("TOKEN: Bearer " + accessToken);
         ex.createBaseHeaders(accessToken);
+    }
 
+    public static void main(String[] args) throws IOException {
+        boolean debug = true;
+
+        setup(debug);
+        System.out.println(addContact("testName1", "2267917415"));
+        System.out.println(addContact("testName2", "2267917415"));
         System.out.println(addContact("testName3", "2267917415"));
-        //System.out.println(getContact(5,10,0,"contactName","desc"));
-        //System.out.println(oneTimeRequest("Ian", "2267917415",100.00, "CAD"));
+        System.out.println(addContact("testName4", "2267917415"));
+        System.out.println(addContact("testName5", "2267917415"));
+        deleteAllContacts();
+//        System.out.println(oneTimeRequest("Ian", "2267917415",100.00, "CAD"));
     }
 }
