@@ -17,7 +17,7 @@ public class MainApp extends AppCompatActivity{
     //methods to get data, attach this to NFCTransfer Message Creator method
     messageData = new DataPoint();
     messageData.setMain(this);
-    
+
     messageData.getEmail();
 
   }
