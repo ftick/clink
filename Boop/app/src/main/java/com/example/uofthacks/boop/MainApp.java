@@ -82,6 +82,7 @@ public class MainApp extends AppCompatActivity implements NfcAdapter.CreateNdefM
    */
   @Override
   public void onNdefPushComplete(NfcEvent event) {
+    Toast.makeText(this, "Money transfer sent", Toast.LENGTH_LONG).show();
     event.nfcAdapter.setNdefPushMessage(null, this);
     event.nfcAdapter.setNdefPushMessageCallback(null, this);
     event.nfcAdapter.setOnNdefPushCompleteCallback(null, this);
