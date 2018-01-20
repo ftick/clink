@@ -31,6 +31,82 @@ public class Main {
     private static Map<String,String> baseHeaders;
     static Random rng = new Random();
 
+    public static boolean DEBUG = false;
+
+    ///// TODO:
+
+    void createBaseHeaders(String accessToken){
+        baseHeaders = new HashMap<String,String>();
+        baseHeaders.put("accessToken", "Bearer " + accessToken);
+        baseHeaders.put("thirdPartyAccessId",ACCESS_ID);
+        baseHeaders.put("deviceId","deviceId123");
+        baseHeaders.put("applicationId","boop");
+        baseHeaders.put("Content-Type","application/json");
+    }
+
+    private static String generateRequestId(){
+        return Integer.toString(rng.nextInt());
+    }
+
+    static Map<String,String> addContactHeaders() {
+        Map<String,String> headers = baseHeaders;
+        headers.put("requestId",generateRequestId());
+        headers.put("apiRegistrationId", REGISTRATION_ID);
+        return headers;
+    }
+
+    static Map<String,String> getContactHeaders(int maxResponse, String time) {
+        Map<String,String> headers = addContactHeaders();
+
+        headers.put("maxResponseItems",Integer.toString(maxResponse));
+        headers.put("fromLastUpdatedDate",time);
+
+        return headers;
+    }
+
+    static String contactJson(String name, String handle) {
+        String type = "sms";
+        if(handle.contains("@")) type = "email";
+
+        return "{\"contactName\": \"" + name + "\","
+                + "  \"language\": \"en\","
+                + "  \"notificationPreferences\": [{"
+                + "      \"handle\": \"" + handle + "\","
+                + "      \"handleType\": \"" + type + "\","
+                + "      \"active\": true"
+                + "}]}";
+    }
+
+    static String oneJson(String contact, double amount, String currency, int daysToSend){
+        LocalDate today = LocalDate.now(ZoneId.of("America/New_York"));
+        Date creationDate = Date.from(today.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+        LocalDate daysLater = today.plusDays(daysToSend);
+        Date dueDate = Date.from(daysLater.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+        LocalDate daysAgo = daysLater.plusDays(daysToSend);
+        Date expiryDate = Date.from(daysAgo.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+
+        return "{\"sourceMoneyRequestId\": \"sourceid" + generateRequestId() + "\","
+                + "  \"requestedFrom\": " + contact + ","
+                + "  \"amount\": " + Double.toString(amount) + ","
+                + "  \"currency\": \"" + currency + "\","
+                + "  \"editableFulfillAmount\": false,"
+                + "  \"requesterMessage\": \"string\","
+                + "  \"invoice\": {"
+                + "    \"invoiceNumber\": \"" + Integer.toString(rng.nextInt(999999999)) + "\","
+                + "    \"dueDate\": \"" + dateFormat.format(dueDate) + "\""
+                + "  },"
+                + "  \"expiryDate\": \"" + dateFormat.format(expiryDate) + "\","
+                + "  \"supressResponderNotifications\": true,"
+                + "  \"returnURL\": \"string\",\n"
+                + "  \"creationDate\": \"" + dateFormat.format(creationDate) + "\","
+                + "  \"status\": 0,"
+                + "  \"fulfillAmount\": 20,"
+                + "  \"responderMessage\": \"string\","
+                + "  \"notificationStatus\": 0}";
+    }
+
+    ///// TODO: REST METHODS
+
     private static String get(String url, Map<String, String> header) throws IOException {
         Headers headerbuild = Headers.of(header);
         Request request = new Request.Builder()
@@ -67,77 +143,7 @@ public class Main {
         }
     }
 
-    private static String generateRequestId(){
-        return Integer.toString(rng.nextInt());
-    }
-
-    void createBaseHeaders(String accessToken){
-        baseHeaders = new HashMap<String,String>();
-        baseHeaders.put("accessToken", "Bearer " + accessToken);
-        baseHeaders.put("thirdPartyAccessId",ACCESS_ID);
-        baseHeaders.put("deviceId","deviceId123");
-        baseHeaders.put("applicationId","boop");
-        baseHeaders.put("Content-Type","application/json");
-    }
-
-    static Map<String,String> addContactHeaders() {
-        Map<String,String> headers = baseHeaders;
-        headers.put("requestId",generateRequestId());
-        headers.put("apiRegistrationId", REGISTRATION_ID);
-        return headers;
-    }
-
-    static Map<String,String> getContactHeaders(int maxResponse, String time, int offset,
-                                                String sortBy, String orderBy) {
-        Map<String,String> headers = addContactHeaders();
-
-        headers.put("maxResponseItems",Integer.toString(maxResponse));
-        headers.put("fromLastUpdatedDate",time);
-        headers.put("offset",Integer.toString(offset));
-        headers.put("sortBy",sortBy);
-        headers.put("orderBy",orderBy);
-
-        return headers;
-    }
-
-    static String contactJson(String name, String handle) {
-        String type = "sms";
-        if(handle.contains("@")) type = "email";
-
-        return "{\"contactName\": \"" + name + "\","
-                + "  \"language\": \"en\","
-                + "  \"notificationPreferences\": [{"
-                + "      \"handle\": \"" + handle + "\","
-                + "      \"handleType\": \"" + type + "\","
-                + "      \"active\": true"
-                + "}]}";
-    }
-
-    static String oneJson(String contact, double amount, String currency, int daysToSend){
-        LocalDate today = LocalDate.now(ZoneId.of("America/New_York"));
-        Date creationDate = Date.from(today.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
-        LocalDate daysAgo = today.plusDays(daysToSend);
-        Date expiryDate = Date.from(daysAgo.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
-
-        return "{\"sourceMoneyRequestId\": \"sourceid" + generateRequestId() + "\","
-                + "  \"requestedFrom\": " + contact + ","
-                + "  \"amount\": " + Double.toString(amount) + ","
-                + "  \"currency\": \"" + currency + "\","
-                + "  \"editableFulfillAmount\": false,"
-                + "  \"requesterMessage\": \"string\","
-                + "  \"invoice\": {"
-                + "    \"invoiceNumber\": \"string\","
-                + "    \"dueDate\": \"" + dateFormat.format(expiryDate) + "\""
-                + "  },"
-                + "  \"expiryDate\": \"" + dateFormat.format(expiryDate) + "\","
-                + "  \"supressResponderNotifications\": true,"
-                + "  \"returnURL\": \"string\",\n"
-                + "  \"creationDate\": \"" + dateFormat.format(creationDate) + "\","
-                + "  \"status\": 0,"
-                + "  \"fulfillAmount\": 20,"
-                + "  \"responderMessage\": \"string\","
-                + "  \"notificationStatus\": 0}";
-    }
+    ///// TODO: CONTACTS
 
     public static String addContact(String name, String handle){
         String json = contactJson(name, handle);
@@ -148,6 +154,19 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
             return "Failed to POST Contact";
+        }
+    }
+
+    public static String getContact(int items, int daysPast){
+        LocalDate dateBeforeNDays = LocalDate.now(ZoneId.of("America/New_York")).minusDays(daysPast);
+        Date date = Date.from(dateBeforeNDays.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+        String time = dateFormat.format(date);
+        Map<String,String> map = getContactHeaders(items,time);
+
+        try {
+            return get(CONTACT_ENDPOINT, map);
+        } catch (IOException e) {
+            return "Failed to GET Contact";
         }
     }
 
@@ -165,12 +184,12 @@ public class Main {
     }
 
     public static void deleteAllContacts(){
-        String contacts = getContact(5,10,0,"contactName","desc");
+        String contacts = getContact(5,10);
         String firstId = contacts.substring(contacts.indexOf(":")+2);
         firstId = firstId.substring(0,firstId.indexOf("\""));
         while(removeContact(firstId)) {
-            System.out.println("DELETE " + firstId);
-            contacts = getContact(5, 10, 0, "contactName", "desc");
+            if(DEBUG) System.out.println("DELETE " + firstId);
+            contacts = getContact(5, 10);
             System.out.println(contacts);
             if(contacts.equals("[]")) break;
             firstId = contacts.substring(contacts.indexOf(":") + 2);
@@ -178,24 +197,13 @@ public class Main {
         }
     }
 
-    public static String getContact(int maxResponses, int daysPast, int offset, String sortBy, String orderBy){
-        LocalDate dateBeforeNDays = LocalDate.now(ZoneId.of("America/New_York")).minusDays(daysPast);
-        Date date = Date.from(dateBeforeNDays.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
-        String time = dateFormat.format(date);
-        Map<String,String> map = getContactHeaders(maxResponses,time,offset,sortBy,orderBy);
+    ///// TODO: REQUESTS
 
-        try {
-            return get(CONTACT_ENDPOINT, map);
-        } catch (IOException e) {
-            return "Failed to GET Contact";
-        }
-    }
-
-    public static String oneTimeRequest(String name, String handle, double amount, String currency){
+    public static String addRequest(String name, String handle, double amount, String currency){
         String json = oneJson(contactJson(name, handle), amount, currency, 10);
         Map<String,String> map = addContactHeaders();
 
-        System.out.println(json);
+        if(DEBUG) System.out.println(json);
 
         try {
             return post(REQUEST_ENDPOINT, map, json);
@@ -203,6 +211,39 @@ public class Main {
             return "Failed to POST Money";
         }
     }
+
+    public static String getRequest(String referenceNumber) {
+        Map<String,String> map = addContactHeaders();
+
+        try {
+            return get(REQUEST_ENDPOINT + "?referenceNumber=" + referenceNumber, map);
+        } catch (IOException e) {
+            return "Failed to GET Request";
+        }
+    }
+
+    public static String getRequest(int items, int daysAgo) {
+        Map<String,String> map = addContactHeaders();
+        LocalDate dateBeforeNDays = LocalDate.now(ZoneId.of("America/New_York")).minusDays(daysAgo);
+        Date date = Date.from(dateBeforeNDays.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+
+        map.put("maxResponseItems",Integer.toString(items));
+        map.put("fromDate", dateFormat.format(date));
+        map.put("toDate", dateFormat.format(new Date()));
+
+        try {
+            return get(REQUEST_ENDPOINT, map);
+        } catch (IOException e) {
+            return "Failed to GET Request";
+        }
+
+}
+
+    public static boolean removeRequest(){
+        return false;
+    }
+
+    ///// TODO: SETUP
 
     public static String importSecret(String filepath){
         try {
@@ -244,7 +285,7 @@ public class Main {
         }
     }
 
-    public static void setup(boolean debug){
+    public static void setup(){
         Main ex = new Main();
 
         String salt = "dank";
@@ -253,20 +294,50 @@ public class Main {
         String accessToken = generateAccessToken(secret, salt);
         accessToken = accessToken.substring(accessToken.indexOf("token\":\"")+8);
         accessToken = accessToken.substring(0, accessToken.indexOf("\""));
-        if(debug) System.out.println("TOKEN: Bearer " + accessToken);
+        if(DEBUG) System.out.println("TOKEN: Bearer " + accessToken);
         ex.createBaseHeaders(accessToken);
     }
 
-    public static void main(String[] args) throws IOException {
-        boolean debug = true;
+    public static String findStr(String sourceStr, String searchStr, boolean isNum){
+        sourceStr = sourceStr.replaceAll(" ","");
+        sourceStr = sourceStr.substring(sourceStr.indexOf(searchStr) + searchStr.length()+2);
+        if(isNum) {
+            String returnThis = "";
+            try {
+                returnThis = sourceStr.substring(0, sourceStr.indexOf(","));
+            } catch(StringIndexOutOfBoundsException a) {
+                try {
+                    returnThis = sourceStr.substring(0, sourceStr.indexOf("]"));
+                } catch (StringIndexOutOfBoundsException b) {
+                    try {
+                        returnThis = sourceStr.substring(0, sourceStr.indexOf("["));
+                    } catch (StringIndexOutOfBoundsException c) {
+                        c.printStackTrace();
+                    }
+                }
+            }
+            return returnThis;
+        }
+        return sourceStr.substring(1, sourceStr.substring(1).indexOf("\""));
+    }
 
-        setup(debug);
-        System.out.println(addContact("testName1", "2267917415"));
-        System.out.println(addContact("testName2", "2267917415"));
-        System.out.println(addContact("testName3", "2267917415"));
-        System.out.println(addContact("testName4", "2267917415"));
-        System.out.println(addContact("testName5", "2267917415"));
-        deleteAllContacts();
-//        System.out.println(oneTimeRequest("Ian", "2267917415",100.00, "CAD"));
+    public static void main(String[] args) throws IOException {
+        DEBUG = true;
+        setup();
+
+//        System.out.println(addContact("testName1", "2267917415"));
+//        System.out.println(addRequest("Ian", "2267917415",100, "CAD");
+//        deleteAllContacts();
+
+        String response = addRequest("Ian", "2267917415",100, "CAD");
+//        String refNum = response.substring(response.indexOf("Number\":\"")+9);
+//        refNum = refNum.substring(0,refNum.indexOf("\""));
+        String refNum = findStr(response, "referenceNumber", false);
+//        String url = response.substring(response.indexOf("Url\":\"")+6);
+//        url = url.substring(0,url.indexOf("\""));
+        String url = findStr(response, "Url", false);
+        System.out.println(getRequest(refNum));
+        System.out.println(refNum);
+        System.out.println(url);
     }
 }
