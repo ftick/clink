@@ -46,6 +46,7 @@ public class MainApp extends AppCompatActivity{
     transferInfo.setEmail(email);
     transferInfo.setAmount(messageData.getAmount((EditText) findViewById(R.id.moneyAmount)));
     transferInfo.setCurrency(messageData.getCurrency());
-    transferEngine.transferMoney(transferInfo);
+    boolean a = transferEngine.transferMoney(transferInfo);
+    System.out.println(a);
   }
 }

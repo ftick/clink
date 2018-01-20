@@ -10,6 +10,7 @@ import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.NfcEvent;
 import android.os.Parcelable;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -19,10 +20,10 @@ import java.nio.charset.Charset;
 public class NFCTransfer implements NfcAdapter.CreateNdefMessageCallback, NfcAdapter.OnNdefPushCompleteCallback {
 
   private static final String TAG = "NFC";
-  private Activity activity;
+  private AppCompatActivity activity;
   private MoneyTransfer transfer;
 
-  public NFCTransfer(Activity activity){
+  public NFCTransfer(AppCompatActivity activity){
     this.activity = activity;
   }
 
