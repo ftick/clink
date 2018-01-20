@@ -31,7 +31,6 @@ public class DataPoint {
         setEmail(email);
         return email;
     }
-    
     public Double getAmount(EditText edit){
         moneyAmount = Double.parseDouble(edit.getText().toString());
         return moneyAmount;
