@@ -1,0 +1,7 @@
+#Sat Jan 20 10:05:13 EST 2018
+base.0=/home/kavinjey/Desktop/boop/Boop/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_8e536b4f9f70b0cf607cb0ee2d565a587e5d5010
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/home/kavinjey/Desktop/boop/Boop/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_b02bb03ffdf854ba9c737ea5d2ac8985bd918a5c/classes.dex
+base.1=/home/kavinjey/Desktop/boop/Boop/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_b02bb03ffdf854ba9c737ea5d2ac8985bd918a5c
+file.0=/home/kavinjey/Desktop/boop/Boop/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_8e536b4f9f70b0cf607cb0ee2d565a587e5d5010/classes.dex

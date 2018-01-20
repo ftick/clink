@@ -1,0 +1,4 @@
+#Sat Jan 20 10:05:13 EST 2018
+base.0=/home/kavinjey/Desktop/boop/Boop/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4
+renamed.0=classes.dex
+file.0=/home/kavinjey/Desktop/boop/Boop/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex

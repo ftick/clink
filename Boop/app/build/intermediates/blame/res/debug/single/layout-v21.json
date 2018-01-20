@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/kavinjey/Desktop/boop/Boop/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/home/kavinjey/.android/build-cache/2df7a64a939f39b697609a4a52550216a77483ce/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/home/kavinjey/Desktop/boop/Boop/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/home/kavinjey/.android/build-cache/2df7a64a939f39b697609a4a52550216a77483ce/output/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/home/kavinjey/Desktop/boop/Boop/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/home/kavinjey/.android/build-cache/2df7a64a939f39b697609a4a52550216a77483ce/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/home/kavinjey/Desktop/boop/Boop/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/home/kavinjey/.android/build-cache/2df7a64a939f39b697609a4a52550216a77483ce/output/res/layout-v21/notification_action.xml"
+    }
+]

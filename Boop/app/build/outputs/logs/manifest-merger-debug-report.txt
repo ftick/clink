@@ -1,0 +1,87 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:2:1-34:12
+	package
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:3:5-41
+		INJECTED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml
+		INJECTED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml
+		INJECTED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml
+		INJECTED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml
+uses-feature#android.hardware.nfc
+ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:5:5-7:35
+	android:required
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:7:9-32
+	android:name
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:6:9-44
+uses-permission#android.permission.NFC
+ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:9:5-62
+	android:name
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:9:22-59
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:10:5-71
+	android:name
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:10:22-68
+application
+ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:12:5-32:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/kavinjey/.android/build-cache/a3d36366dcb973832d913cf0caf56eb795b2e3eb/output/AndroidManifest.xml:9:5-20
+	android:label
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:15:9-41
+	android:supportsRtl
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:17:9-35
+	android:roundIcon
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:16:9-54
+	android:allowBackup
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:13:9-35
+	android:icon
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:14:9-43
+	android:theme
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:18:9-40
+activity#com.example.uofthacks.boop.MainApp
+ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:19:9-31:20
+	android:name
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:19:19-42
+intent-filter#android.intent.action.MAIN+android.intent.category.DEFAULT+android.intent.category.LAUNCHER+android.nfc.action.NDEF_DISCOVERED
+ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:20:13-30:29
+action#android.intent.action.MAIN
+ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:21:17-69
+	android:name
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:21:25-66
+action#android.nfc.action.NDEF_DISCOVERED
+ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:22:17-77
+	android:name
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:22:25-74
+category#android.intent.category.DEFAULT
+ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:24:17-76
+	android:name
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:24:27-73
+data
+ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:26:17-55
+	android:mimeType
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:26:23-52
+category#android.intent.category.LAUNCHER
+ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:29:17-77
+	android:name
+		ADDED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml:29:27-74
+uses-sdk
+INJECTED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:27.0.2] /home/kavinjey/.android/build-cache/a65afd6edb097e64822fd326ef9631ffe5b5c9c0/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] /home/kavinjey/.android/build-cache/e09b41e4cc0a900eb7e9b9ab85d59219ee6f06ee/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] /home/kavinjey/.android/build-cache/025c5c8f2ccff70e0ad8bab0d89020eb91e59866/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] /home/kavinjey/.android/build-cache/c7253523c78afa3cc6220d2e19b04bc3428d54e6/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] /home/kavinjey/.android/build-cache/a7b237db5259e9adc50f7cce5684631869e3ab4b/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] /home/kavinjey/.android/build-cache/c731768464995daa2a2ad855692a727909a8b304/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] /home/kavinjey/.android/build-cache/2df7a64a939f39b697609a4a52550216a77483ce/output/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /home/kavinjey/.android/build-cache/c9e621c4b7110c1b9ed5044d7bafc34448baec19/output/AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/kavinjey/.android/build-cache/a3d36366dcb973832d913cf0caf56eb795b2e3eb/output/AndroidManifest.xml:5:5-7:41
+	android:targetSdkVersion
+		INJECTED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml
+		INJECTED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml
+		INJECTED from /home/kavinjey/Desktop/boop/Boop/app/src/main/AndroidManifest.xml
