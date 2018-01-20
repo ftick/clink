@@ -32,11 +32,11 @@ public class DataPoint {
         this.email = email;
     }
 
-    public String getEmail() {
+    public String getEmail(final DialogInputInterface dlg) {
 
         //This will be the only way to get an email out of this class
         String[] possibleEmails = getEmails();
-        email = setPrimary(possibleEmails);
+        email = setPrimary(possibleEmails, dlg);
         setEmail(email);
         return email;
     }
@@ -84,7 +84,7 @@ public class DataPoint {
     }
 
     //Alert Window for selecting which email to use
-    private String setPrimary(String[] accounts) {
+    private String setPrimary(final String[] accounts, final DialogInputInterface dlg) {
 
         final CharSequence[] items = accounts;
 
@@ -93,7 +93,8 @@ public class DataPoint {
         builder.setItems(items, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int item) {
                 // Do something with the selection
-              ((TextView) main.findViewById(R.id.waitingForRecipientLabel)).setText(item);
+              dlg.onSelectEmail(accounts[item]);
+              dialog.dismiss();
             }
         });
         AlertDialog alert = builder.create();
