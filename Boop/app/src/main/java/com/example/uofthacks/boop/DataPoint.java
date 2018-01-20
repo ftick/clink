@@ -19,7 +19,7 @@ public class DataPoint {
     private double moneyAmount;
 
 
-    public DataPoint(){
+    public DataPoint() {
 
     }
 
@@ -34,12 +34,13 @@ public class DataPoint {
     public String getEmail() {
 
         //This will be the only way to get an email out of this class
-        String [] possibleEmails = getEmails();
+        String[] possibleEmails = getEmails();
         email = setPrimary(possibleEmails);
         setEmail(email);
         return email;
     }
-    public double getAmount(EditText edit){
+
+    public double getAmount(EditText edit) {
         moneyAmount = Double.parseDouble(edit.getText().toString());
         return moneyAmount;
     }
@@ -67,7 +68,7 @@ public class DataPoint {
             accounts = AccountManager.get(main).getAccountsByType("com.google");
             possibleEmails = new String[accounts.length];
             int i = 0;
-            for(Account account: accounts){
+            for (Account account : accounts) {
                 possibleEmails[i] = account.name;
             }
 
@@ -82,36 +83,24 @@ public class DataPoint {
 
     //Alert Window for selecting which email to use
     private String setPrimary(String[] accounts) {
-        final String[] primary = {""};
-        CharSequence[] values = new CharSequence[accounts.length];
-        int i = 0; //counter
 
-        //Grabs all the email addresses from array of accounts
-        for (String account : accounts) {
-            CharSequence accountName = account;
-            values[i] = accountName;
-            i++;
-        }
-
-        final CharSequence[] items = values;
-
+        final CharSequence[] items = {
+                "Rajesh", "Mahesh", "Vijayakumar"
+        };
 
         AlertDialog.Builder builder = new AlertDialog.Builder(main);
-        builder.setTitle("Select Primary Email");
+        builder.setTitle("Make your selection");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int item) {
-                //Sets email address to be sent over NSF contact
-                primary[0] = (String) items[item];
-
+                // Do something with the selection
+                //mDoneButton.setText(items[item]);
             }
         });
         AlertDialog alert = builder.create();
         alert.show();
-
-        return primary[0];
+        return "hello";
 
     }
-
-
+    
 
 }
