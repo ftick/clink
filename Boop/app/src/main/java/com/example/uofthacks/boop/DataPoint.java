@@ -9,6 +9,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class DataPoint {
@@ -70,6 +71,7 @@ public class DataPoint {
             int i = 0;
             for (Account account : accounts) {
                 possibleEmails[i] = account.name;
+                i += 1;
             }
 
         } catch (Exception e) {
@@ -91,7 +93,7 @@ public class DataPoint {
         builder.setItems(items, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int item) {
                 // Do something with the selection
-                //mDoneButton.setText(items[item]);
+              ((TextView) main.findViewById(R.id.waitingForRecipientLabel)).setText(item);
             }
         });
         AlertDialog alert = builder.create();
