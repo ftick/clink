@@ -8,20 +8,41 @@ import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.widget.EditText;
 
 
 public class DataPoint {
     private String email;
-    private String phoneNumber;
+    //private String phoneNumber; todo implement phonenumber later
     private MainApp main;
+    private static final String currency = "CAD";
+    private Double moneyAmount;
 
+
+    private void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+
+        //This will be the only way to get an email out of this class
+        Account [] possibleEmails = getEmails();
+        email = setPrimary(possibleEmails);
+        setEmail(email);
+        return email;
+    }
     
+    public Double getAmount(EditText edit){
+        moneyAmount = Double.parseDouble(edit.getText().toString());
+        return moneyAmount;
+    }
+
 
     public void setMain(MainApp main) {
         this.main = main;
     }
 
-    public Account[] getEmails() {
+    private Account[] getEmails() {
         Account[] accounts = null;
         int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 0;
         // Here, thisActivity is the current activity
@@ -53,7 +74,7 @@ public class DataPoint {
     }
 
     //Alert Window for selecting which email to use
-    public String setPrimary(Account[] accounts) {
+    private String setPrimary(Account[] accounts) {
         final String[] primary = {""};
         CharSequence[] values = new CharSequence[accounts.length];
         int i = 0; //counter
@@ -83,6 +104,7 @@ public class DataPoint {
         return primary[0];
 
     }
+
 
 
 }
