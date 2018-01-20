@@ -23,14 +23,12 @@ public class MainApp extends AppCompatActivity{
     //methods to get data, attach this to NFCTransfer Message Creator method
       messageData = new DataPoint();
       messageData.setMain(this);
-
-
   }
 
   @Override
   protected void onResume() {
     super.onResume();
-    transferEngine.receiveMoney(null);
+    transferEngine.receiveMoney();
   }
 
   public void onButtonClick(View v){

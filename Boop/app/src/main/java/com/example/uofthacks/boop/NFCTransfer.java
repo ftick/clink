@@ -49,46 +49,25 @@ public class NFCTransfer implements NfcAdapter.CreateNdefMessageCallback, NfcAda
     return false;
   }
 
-  public boolean receiveMoney(MoneyTransfer transfer){
-    this.transfer = transfer;
-    Log.d(TAG, "enableForegroundMode");
-
-    Intent intent = activity.getIntent();
+  public void receiveMoney(){
+    Intent intent = this.activity.getIntent();
+    TextView view = (TextView) activity.findViewById(R.id.waitingForRecipientLabel);
     if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
       Parcelable[] rawMessages = intent.getParcelableArrayExtra(
           NfcAdapter.EXTRA_NDEF_MESSAGES);
 
-      if (rawMessages.length >= 1) {
-        NdefMessage message = (NdefMessage) rawMessages[0]; // only one message transferred
-        String text = new String(message.getRecords()[0].getPayload());
-        Toast.makeText(activity, text, Toast.LENGTH_SHORT).show();
-        return true;
-      }
+      NdefMessage message = (NdefMessage) rawMessages[0]; // only one message transferred
+      view.setText(new String(message.getRecords()[0].getPayload()));
     }
-    return false;
+    else
+      view.setText("Waiting for NDEF Message");
   }
 
   @Override
   public NdefMessage createNdefMessage(NfcEvent event) {
-    NdefMessage ndefMessage = null;
-    if (transfer != null) {
-      String[] contents = {
-          transfer.getEmail(),
-          transfer.getPhoneNumber(),
-          transfer.getCurrency(),
-          transfer.getAmount() + ""
-      };
-      NdefRecord[] ndefRecords = createRecords(contents);
-      ndefMessage = new NdefMessage(ndefRecords);
-      transfer = null;
-    }
-    else{
-      try {
-        ndefMessage = new NdefMessage("empty".getBytes());
-      } catch (FormatException e) {
-        e.printStackTrace();
-      }
-    }
+    String message = transfer.getEmail();
+    NdefRecord ndefRecord = NdefRecord.createMime("text/plain", message.getBytes());
+    NdefMessage ndefMessage = new NdefMessage(ndefRecord);
     return ndefMessage;
   }
 
