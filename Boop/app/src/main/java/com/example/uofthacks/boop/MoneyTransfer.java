@@ -1,6 +1,7 @@
 package com.example.uofthacks.boop;
 
 public class MoneyTransfer {
+
   private String email;
   private String phoneNumber;
 
@@ -23,4 +24,8 @@ public class MoneyTransfer {
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
   }
+
+
+
+
 }
