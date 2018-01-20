@@ -77,15 +77,15 @@ public class SendMoneyActivity extends AppCompatActivity implements NfcAdapter.C
     transferInfo.setAmount(messageData.getAmount(moneyAmount));
     transferInfo.setCurrency(messageData.getCurrency());
     transferInfo.setEmail(email);
-    transferInfo.setPhoneNumber("905 999 9999");
 
-    NdefRecord ndefRecord = NdefRecord.createMime("text/plain", transferInfo.serialize().getBytes());
+
+    NdefRecord ndefRecord = NdefRecord.createTextRecord("en", transferInfo.serialize()); //Creates a text record
 
     Toast.makeText(this,
         "Sending transfer of " + messageData.getCurrency() +
-            " " + messageData.getCurrency(), Toast.LENGTH_SHORT
-    ).show();
-    status = 2;
+            " " + messageData.getCurrency(), Toast.LENGTH_SHORT).show();
+
+    status = 2; //for debugging dont remove
     output.setText(status);
     return new NdefMessage(ndefRecord);
   }

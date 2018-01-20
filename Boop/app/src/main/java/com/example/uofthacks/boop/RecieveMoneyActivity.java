@@ -2,6 +2,7 @@ package com.example.uofthacks.boop;
 
 import android.content.Intent;
 import android.nfc.NdefMessage;
+import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,25 +12,35 @@ import android.widget.Toast;
 
 public class RecieveMoneyActivity extends AppCompatActivity {
 
+    private TextView textBox;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_recieve_money);
+    textBox = findViewById(R.id.textbox);
+
+
   }
 
-  public void onResume(){
-    super.onResume();
-    Intent intent = getIntent();
-    if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
-      Parcelable[] rawMessages = intent.getParcelableArrayExtra(
-          NfcAdapter.EXTRA_NDEF_MESSAGES);
+  public void onResume() {
+      super.onResume();
+      Intent intent = getIntent();
+      String action = intent.getAction();
+      if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
+          processIntent(getIntent());
+      }
 
-      NdefMessage message = (NdefMessage) rawMessages[0]; // only one message transferred
-      TextView view = (TextView) findViewById(R.id.textbox);
-      view.setText(message.getRecords()[0].getPayload().toString());
-
-    }
-    else
-      Toast.makeText(this, "Waiting for NDEF Message", Toast.LENGTH_SHORT).show();
   }
+
+  void processIntent(Intent intent){
+      Parcelable[] rawMsgs = intent.getParcelableArrayExtra(
+              NfcAdapter.EXTRA_NDEF_MESSAGES);
+      // only one message sent during the beam
+      NdefMessage msg = (NdefMessage) rawMsgs[0];
+      // record 0 contains the MIME type, record 1 is the AAR, if present
+      textBox.setText(new String(msg.getRecords()[0].getPayload()));
+
+  }
+
 }
