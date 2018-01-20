@@ -28,7 +28,8 @@ public class RecieveMoneyActivity extends AppCompatActivity {
       TextView view = (TextView) findViewById(R.id.textbox);
       view.setText(message.getRecords()[0].getPayload().toString());
 
-    } else
+    }
+    else
       Toast.makeText(this, "Waiting for NDEF Message", Toast.LENGTH_SHORT).show();
   }
 }
