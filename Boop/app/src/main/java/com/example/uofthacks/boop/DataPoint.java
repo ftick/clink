@@ -61,10 +61,11 @@ public class DataPoint {
                     MY_PERMISSIONS_REQUEST_READ_CONTACTS);
         }
 
-        String possibleEmails[] = new String[accounts.length];
+        String possibleEmails[] = {};
         try {
 
             accounts = AccountManager.get(main).getAccountsByType("com.google");
+            possibleEmails = new String[accounts.length];
             int i = 0;
             for(Account account: accounts){
                 possibleEmails[i] = account.name;
