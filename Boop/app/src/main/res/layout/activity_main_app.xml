@@ -16,7 +16,8 @@
       app:layout_constraintHorizontal_bias="0.5"
       app:layout_constraintStart_toStartOf="parent"
       tools:ignore="MissingConstraints"
-      tools:layout_editor_absoluteY="314dp" />
+      tools:layout_editor_absoluteY="314dp"
+      android:onClick="onButtonClick"/>
 
   <EditText
       android:id="@+id/moneyAmount"
