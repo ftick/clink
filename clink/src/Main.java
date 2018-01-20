@@ -2,6 +2,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -12,6 +14,7 @@ import java.util.Map;
 import java.util.Random;
 
 import okhttp3.*;
+import org.apache.commons.codec.binary.Base64;
 
 public class Main {
 
@@ -35,6 +38,35 @@ public class Main {
 
     ///// TODO:
 
+    private static String generateRequestId(){
+        return Integer.toString(rng.nextInt());
+    }
+
+    public static String findStr(String sourceStr, String searchStr, boolean isNum){
+        sourceStr = sourceStr.replaceAll(" ","");
+        sourceStr = sourceStr.substring(sourceStr.indexOf(searchStr) + searchStr.length()+2);
+        if(isNum) {
+            String returnThis = "";
+            try {
+                returnThis = sourceStr.substring(0, sourceStr.indexOf(","));
+            } catch(StringIndexOutOfBoundsException a) {
+                try {
+                    returnThis = sourceStr.substring(0, sourceStr.indexOf("]"));
+                } catch (StringIndexOutOfBoundsException b) {
+                    try {
+                        returnThis = sourceStr.substring(0, sourceStr.indexOf("["));
+                    } catch (StringIndexOutOfBoundsException c) {
+                        c.printStackTrace();
+                    }
+                }
+            }
+            return returnThis;
+        }
+        return sourceStr.substring(1, sourceStr.substring(1).indexOf("\"")+1);
+    }
+
+    ///// TODO: STRUCTURES
+
     void createBaseHeaders(String accessToken){
         baseHeaders = new HashMap<String,String>();
         baseHeaders.put("accessToken", "Bearer " + accessToken);
@@ -42,10 +74,6 @@ public class Main {
         baseHeaders.put("deviceId","deviceId123");
         baseHeaders.put("applicationId","boop");
         baseHeaders.put("Content-Type","application/json");
-    }
-
-    private static String generateRequestId(){
-        return Integer.toString(rng.nextInt());
     }
 
     static Map<String,String> addContactHeaders() {
@@ -239,6 +267,7 @@ public class Main {
 
 }
 
+    // TODO: REMOVE Request
     public static boolean removeRequest(){
         return false;
     }
@@ -257,6 +286,7 @@ public class Main {
                 stringBuffer.append("\n");
             }
             fileReader.close();
+            if(DEBUG) System.out.println("NOENCRYPT: " + stringBuffer.toString());
             return stringBuffer.toString();//.substring(2);
         } catch (IOException e) {
             e.printStackTrace();
@@ -264,17 +294,16 @@ public class Main {
         return "Failed to import secret";
     }
 
+    public static String encrypt(String secret, String salt) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        return new String(Base64.encodeBase64(md.digest(
+                (salt + ':' + secret.substring(0,secret.indexOf("\n"))).getBytes())));
+    }
+
     public static String generateAccessToken(String secret, String salt){
-//        MessageDigest md = null;
-//        try {
-//            md = MessageDigest.getInstance("SHA-256");
-//        } catch (NoSuchAlgorithmException e) {
-//            e.printStackTrace();
-//        }
-//        secret = new String(Base64.encodeBase64(md.digest((salt + ':' + secret).getBytes())));
         Map<String,String> map = new HashMap<String,String>();
         map.put("thirdPartyAccessId",ACCESS_ID);
-        map.put("secretKey",SECRET_KEY);
+        map.put("secretKey",secret);
         map.put("salt",salt);
         map.put("Content-Type","application/json");
 
@@ -289,37 +318,23 @@ public class Main {
         Main ex = new Main();
 
         String salt = "dank";
-        String secret = importSecret("secret.txt");
+        String secret = null;
+        try {
+            secret = encrypt(importSecret("secret.txt"), salt);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+
+        if(DEBUG) System.out.println("SECRET: " + secret);
 
         String accessToken = generateAccessToken(secret, salt);
-        accessToken = accessToken.substring(accessToken.indexOf("token\":\"")+8);
-        accessToken = accessToken.substring(0, accessToken.indexOf("\""));
+        if(DEBUG) System.out.println("TOKEN: " + accessToken);
+        accessToken = findStr(accessToken, "access_token", false);
         if(DEBUG) System.out.println("TOKEN: Bearer " + accessToken);
         ex.createBaseHeaders(accessToken);
     }
 
-    public static String findStr(String sourceStr, String searchStr, boolean isNum){
-        sourceStr = sourceStr.replaceAll(" ","");
-        sourceStr = sourceStr.substring(sourceStr.indexOf(searchStr) + searchStr.length()+2);
-        if(isNum) {
-            String returnThis = "";
-            try {
-                returnThis = sourceStr.substring(0, sourceStr.indexOf(","));
-            } catch(StringIndexOutOfBoundsException a) {
-                try {
-                    returnThis = sourceStr.substring(0, sourceStr.indexOf("]"));
-                } catch (StringIndexOutOfBoundsException b) {
-                    try {
-                        returnThis = sourceStr.substring(0, sourceStr.indexOf("["));
-                    } catch (StringIndexOutOfBoundsException c) {
-                        c.printStackTrace();
-                    }
-                }
-            }
-            return returnThis;
-        }
-        return sourceStr.substring(1, sourceStr.substring(1).indexOf("\""));
-    }
+    ///// TODO: MAIN
 
     public static void main(String[] args) throws IOException {
         DEBUG = true;
@@ -330,13 +345,11 @@ public class Main {
 //        deleteAllContacts();
 
         String response = addRequest("Ian", "2267917415",100, "CAD");
-//        String refNum = response.substring(response.indexOf("Number\":\"")+9);
-//        refNum = refNum.substring(0,refNum.indexOf("\""));
         String refNum = findStr(response, "referenceNumber", false);
-//        String url = response.substring(response.indexOf("Url\":\"")+6);
-//        url = url.substring(0,url.indexOf("\""));
         String url = findStr(response, "Url", false);
-        System.out.println(getRequest(refNum));
+//        System.out.println(getRequest(refNum));
+
+        System.out.println(response);
         System.out.println(refNum);
         System.out.println(url);
     }
