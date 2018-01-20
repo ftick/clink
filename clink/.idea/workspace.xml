@@ -15,10 +15,11 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="335" column="0" lean-forward="true" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
+            <state relative-caret-position="401">
+              <caret line="345" column="1" lean-forward="true" selection-start-line="345" selection-start-column="1" selection-end-line="345" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#findStr#0;class#Main#0" expanded="false" />
                 <element signature="method#createBaseHeaders#0;class#Main#0" expanded="false" />
                 <element signature="method#addContactHeaders#0;class#Main#0" expanded="false" />
                 <element signature="method#getContactHeaders#0;class#Main#0" expanded="false" />
@@ -37,7 +38,8 @@
                 <element signature="method#importSecret#0;class#Main#0" expanded="false" />
                 <element signature="method#encrypt#0;class#Main#0" expanded="false" />
                 <element signature="method#generateAccessToken#0;class#Main#0" expanded="false" />
-                <element signature="e#11814#11829#0" expanded="true" />
+                <element signature="e#11611#11626#0" expanded="true" />
+                <element signature="method#setup#0;class#Main#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -208,12 +210,12 @@
       <option name="presentableId" value="Default" />
       <updated>1516436651654</updated>
       <workItem from="1516436667128" duration="1241000" />
-      <workItem from="1516437972544" duration="32687000" />
+      <workItem from="1516437972544" duration="33122000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33928000" />
+    <option name="totallyTimeSpent" value="34363000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="1" width="974" height="1056" extended-state="0" />
@@ -269,6 +271,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#findStr#0;class#Main#0" expanded="false" />
             <element signature="method#createBaseHeaders#0;class#Main#0" expanded="false" />
             <element signature="method#addContactHeaders#0;class#Main#0" expanded="false" />
             <element signature="method#getContactHeaders#0;class#Main#0" expanded="false" />
@@ -287,7 +290,8 @@
             <element signature="method#importSecret#0;class#Main#0" expanded="false" />
             <element signature="method#encrypt#0;class#Main#0" expanded="false" />
             <element signature="method#generateAccessToken#0;class#Main#0" expanded="false" />
-            <element signature="e#11814#11829#0" expanded="true" />
+            <element signature="e#11611#11626#0" expanded="true" />
+            <element signature="method#setup#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -310,10 +314,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="335" column="0" lean-forward="true" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
+        <state relative-caret-position="401">
+          <caret line="345" column="1" lean-forward="true" selection-start-line="345" selection-start-column="1" selection-end-line="345" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#findStr#0;class#Main#0" expanded="false" />
             <element signature="method#createBaseHeaders#0;class#Main#0" expanded="false" />
             <element signature="method#addContactHeaders#0;class#Main#0" expanded="false" />
             <element signature="method#getContactHeaders#0;class#Main#0" expanded="false" />
@@ -332,7 +337,8 @@
             <element signature="method#importSecret#0;class#Main#0" expanded="false" />
             <element signature="method#encrypt#0;class#Main#0" expanded="false" />
             <element signature="method#generateAccessToken#0;class#Main#0" expanded="false" />
-            <element signature="e#11814#11829#0" expanded="true" />
+            <element signature="e#11611#11626#0" expanded="true" />
+            <element signature="method#setup#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -51,13 +51,9 @@ public class Main {
                 returnThis = sourceStr.substring(0, sourceStr.indexOf(","));
             } catch(StringIndexOutOfBoundsException a) {
                 try {
-                    returnThis = sourceStr.substring(0, sourceStr.indexOf("]"));
+                    returnThis = sourceStr.substring(0, sourceStr.indexOf("}"));
                 } catch (StringIndexOutOfBoundsException b) {
-                    try {
-                        returnThis = sourceStr.substring(0, sourceStr.indexOf("["));
-                    } catch (StringIndexOutOfBoundsException c) {
-                        c.printStackTrace();
-                    }
+                    b.printStackTrace();
                 }
             }
             return returnThis;
@@ -337,7 +333,7 @@ public class Main {
     ///// TODO: MAIN
 
     public static void main(String[] args) throws IOException {
-        DEBUG = true;
+//        DEBUG = true;
         setup();
 
 //        System.out.println(addContact("testName1", "2267917415"));
@@ -349,7 +345,7 @@ public class Main {
         String url = findStr(response, "Url", false);
 //        System.out.println(getRequest(refNum));
 
-        System.out.println(response);
+//        System.out.println(response);
         System.out.println(refNum);
         System.out.println(url);
     }
