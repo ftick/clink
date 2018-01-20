@@ -50,7 +50,7 @@ public class DataPoint {
     }
 
     private String[] getEmails() {
-        Account[] accounts = null;
+        Account[] accounts = {};
         int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 0;
         // Here, thisActivity is the current activity
         if (ContextCompat.checkSelfPermission(main,

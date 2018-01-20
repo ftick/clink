@@ -34,8 +34,8 @@ public class MainApp extends AppCompatActivity{
 
     MoneyTransfer transferInfo = new MoneyTransfer();
     transferInfo.setEmail(messageData.getEmail());
-    transferInfo.setAmount(messageData.getAmount((EditText) findViewById(R.id.moneyAmount)));
-    transferInfo.setCurrency(messageData.getCurrency());
+    //transferInfo.setAmount(messageData.getAmount((EditText) findViewById(R.id.moneyAmount)));
+    //transferInfo.setCurrency(messageData.getCurrency());
     transferEngine.transferMoney(transferInfo);
 
 
