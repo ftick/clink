@@ -2,6 +2,7 @@ package com.example.uofthacks.boop;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
@@ -15,7 +16,7 @@ import android.widget.TextView;
 public class DataPoint {
     private String email;
     //private String phoneNumber; todo implement phonenumber later
-    private MainApp main;
+    private Activity main;
     private static final String currency = "CAD";
     private double moneyAmount;
 
@@ -47,7 +48,7 @@ public class DataPoint {
     }
 
 
-    public void setMain(MainApp main) {
+    public void setMain(Activity main) {
         this.main = main;
     }
 

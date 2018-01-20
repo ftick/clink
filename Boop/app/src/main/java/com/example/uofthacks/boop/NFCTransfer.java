@@ -11,23 +11,22 @@ import android.nfc.NfcAdapter;
 import android.nfc.NfcEvent;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.nio.charset.Charset;
 
 public class NFCTransfer implements NfcAdapter.CreateNdefMessageCallback, NfcAdapter.OnNdefPushCompleteCallback {
-
-  private static final String TAG = "NFC";
-  private AppCompatActivity activity;
+  private MainApp activity;
   private MoneyTransfer transfer;
 
-  public NFCTransfer(AppCompatActivity activity){
+  public NFCTransfer(MainApp activity){
     this.activity = activity;
   }
 
-  public boolean transferMoney(MoneyTransfer transfer){
+  public void transferMoney(MoneyTransfer transfer){
+    this.transfer = transfer;
+
     // initialize NFC
     NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(activity);
 
@@ -39,15 +38,12 @@ public class NFCTransfer implements NfcAdapter.CreateNdefMessageCallback, NfcAda
       Toast.makeText(activity, "Please enable Android Beam.", Toast.LENGTH_SHORT).show();
     }
     else{
-      // SEND FILES HERE!
       Toast.makeText(activity, "SENDING TRANSFER", Toast.LENGTH_SHORT).show();
       TextView waitingForReceipientText = (TextView) activity.findViewById(R.id.waitingForRecipientLabel);
       waitingForReceipientText.setVisibility(View.VISIBLE);
       nfcAdapter.setNdefPushMessageCallback(this, activity);
       nfcAdapter.setOnNdefPushCompleteCallback(this, activity);
-      return true;
     }
-    return false;
   }
 
   public void receiveMoney(){
@@ -70,24 +66,6 @@ public class NFCTransfer implements NfcAdapter.CreateNdefMessageCallback, NfcAda
     NdefRecord ndefRecord = NdefRecord.createMime("text/plain", message.getBytes());
     NdefMessage ndefMessage = new NdefMessage(ndefRecord);
     return ndefMessage;
-  }
-
-  private NdefRecord[] createRecords(String[] messagesToSendArray){
-    NdefRecord[] records = new NdefRecord[messagesToSendArray.length];
-
-    for (int i = 0; i < messagesToSendArray.length; i++){
-
-      byte[] payload = messagesToSendArray[i].getBytes(Charset.forName("UTF-8"));
-
-      NdefRecord record = new NdefRecord(
-          NdefRecord.TNF_WELL_KNOWN,  //Our 3-bit Type name format
-          NdefRecord.RTD_TEXT,        //Description of our payload
-          new byte[0],                //The optional id for our Record
-          payload);                   //Our payload for the Record
-
-      records[i] = record;
-    }
-    return records;
   }
 
   @Override

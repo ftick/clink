@@ -2,9 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.example.uofthacks.boop">
 
-  <uses-feature android:name="android.hardware.nfc" android:required="true" />
-  <uses-permission android:name="android.permission.NFC" />
-  <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+  <uses-feature
+    android:name="android.hardware.nfc"
+    android:required="true"/>
+
+  <uses-permission android:name="android.permission.NFC"/>
+  <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
 
   <application
     android:allowBackup="true"
@@ -16,13 +19,19 @@
     <activity android:name=".MainApp">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
-        <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-        <category android:name="android.intent.category.DEFAULT" />
+        <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+
+        <category android:name="android.intent.category.DEFAULT"/>
+
         <data android:mimeType="text/plain"/>
         <data android:mimeType="application/com.example.uofthacks.boop"/>
 
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
+    </activity>
+    <activity android:name=".SendMoneyActivity">
+    </activity>
+    <activity android:name=".RecieveMoneyActivity">
     </activity>
   </application>
 

@@ -2,6 +2,7 @@ package com.example.uofthacks.boop;
 
 import android.accounts.Account;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -21,17 +22,19 @@ public class MainApp extends AppCompatActivity{
     setContentView(R.layout.activity_main_app);
 
     //methods to get data, attach this to NFCTransfer Message Creator method
-      messageData = new DataPoint();
-      messageData.setMain(this);
+    //messageData = new DataPoint();//
+    // messageData.setMain(this);
   }
 
   @Override
   protected void onResume() {
     super.onResume();
-    transferEngine.receiveMoney();
+    //transferEngine.receiveMoney();
   }
 
   public void onButtonClick(View v){
+
+    /*
     transferInfo = new MoneyTransfer();
     messageData.getEmail(new DialogInputInterface() {
       @Override
@@ -39,6 +42,7 @@ public class MainApp extends AppCompatActivity{
         a(email);
       }
     });
+    */
   }
 
   private void a(String email) {
@@ -46,7 +50,16 @@ public class MainApp extends AppCompatActivity{
     transferInfo.setEmail(email);
     transferInfo.setAmount(messageData.getAmount((EditText) findViewById(R.id.moneyAmount)));
     transferInfo.setCurrency(messageData.getCurrency());
-    boolean a = transferEngine.transferMoney(transferInfo);
-    System.out.println(a);
+    transferEngine.transferMoney(transferInfo);
+  }
+
+  public void onSendButtonClick(View view) {
+    Intent intent = new Intent(this, SendMoneyActivity.class);
+    startActivity(intent);
+  }
+
+  public void recieveButtonClick(View view) {
+    Intent intent = new Intent(this, RecieveMoneyActivity.class);
+    startActivity(intent);
   }
 }
