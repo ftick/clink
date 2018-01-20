@@ -84,9 +84,7 @@ public class DataPoint {
     //Alert Window for selecting which email to use
     private String setPrimary(String[] accounts) {
 
-        final CharSequence[] items = {
-                "Rajesh", "Mahesh", "Vijayakumar"
-        };
+        final CharSequence[] items = accounts;
 
         AlertDialog.Builder builder = new AlertDialog.Builder(main);
         builder.setTitle("Make your selection");
@@ -99,8 +97,5 @@ public class DataPoint {
         AlertDialog alert = builder.create();
         alert.show();
         return "hello";
-
     }
-    
-
 }
