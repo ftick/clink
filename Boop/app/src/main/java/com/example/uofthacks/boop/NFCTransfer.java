@@ -1,7 +1,10 @@
 package com.example.uofthacks.boop;
 
+import static android.nfc.NdefRecord.createMime;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.nfc.FormatException;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
@@ -16,6 +19,7 @@ public class NFCTransfer implements NfcAdapter.CreateNdefMessageCallback, NfcAda
 
   private static final String TAG = "NFC";
   private Activity activity;
+  private MoneyTransfer transfer;
 
   public NFCTransfer(Activity activity){
     this.activity = activity;
@@ -34,17 +38,18 @@ public class NFCTransfer implements NfcAdapter.CreateNdefMessageCallback, NfcAda
     }
     else{
       // SEND FILES HERE!
-      Toast.makeText(activity, "SENDING FILE!!", Toast.LENGTH_SHORT).show();
+      Toast.makeText(activity, "SENDING TRANSFER", Toast.LENGTH_SHORT).show();
       TextView waitingForReceipientText = (TextView) activity.findViewById(R.id.waitingForRecipientLabel);
       waitingForReceipientText.setVisibility(View.VISIBLE);
-      //nfcAdapter.setNdefPushMessageCallback(this, this);
-      //nfcAdapter.setOnNdefPushCompleteCallback(this, this);
+      nfcAdapter.setNdefPushMessageCallback(this, activity);
+      nfcAdapter.setOnNdefPushCompleteCallback(this, activity);
       return true;
     }
     return false;
   }
 
   public boolean receiveMoney(MoneyTransfer transfer){
+    this.transfer = transfer;
     Log.d(TAG, "enableForegroundMode");
 
     Intent intent = activity.getIntent();
@@ -62,9 +67,24 @@ public class NFCTransfer implements NfcAdapter.CreateNdefMessageCallback, NfcAda
 
   @Override
   public NdefMessage createNdefMessage(NfcEvent event) {
-    String message = "SAMPLE DEMO";
-    NdefRecord ndefRecord = NdefRecord.createMime("text/plain", message.getBytes());
-    NdefMessage ndefMessage = new NdefMessage(ndefRecord);
+    NdefMessage ndefMessage = null;
+    if (transfer != null) {
+      NdefRecord[] ndefRecords = {
+          createMime("application/vnd.com.example.android.beam", transfer.getEmail().getBytes()),
+          createMime("application/vnd.com.example.android.beam",
+              transfer.getPhoneNumber().getBytes()),
+          NdefRecord.createApplicationRecord("com.example.android.beam")
+      };
+      ndefMessage = new NdefMessage(ndefRecords);
+      transfer = null;
+    }
+    else{
+      try {
+        ndefMessage = new NdefMessage("empty".getBytes());
+      } catch (FormatException e) {
+        e.printStackTrace();
+      }
+    }
     return ndefMessage;
   }
 
