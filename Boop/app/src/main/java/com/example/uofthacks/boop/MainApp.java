@@ -18,10 +18,9 @@ public class MainApp extends AppCompatActivity{
     setContentView(R.layout.activity_main_app);
 
     //methods to get data, attach this to NFCTransfer Message Creator method
-    messageData = new DataPoint();
-    messageData.setMain(this);
+      messageData = new DataPoint();
+      messageData.setMain(this);
 
-    messageData.getEmail();
 
   }
 
@@ -32,10 +31,14 @@ public class MainApp extends AppCompatActivity{
   }
 
   public void onButtonClick(View v){
+
     MoneyTransfer transferInfo = new MoneyTransfer();
     transferInfo.setEmail(messageData.getEmail());
     transferInfo.setAmount(messageData.getAmount((EditText) findViewById(R.id.moneyAmount)));
     transferInfo.setCurrency(messageData.getCurrency());
     transferEngine.transferMoney(transferInfo);
+
+
+
   }
 }

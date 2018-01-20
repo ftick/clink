@@ -20,7 +20,7 @@ public class DataPoint {
 
 
     public DataPoint(){
-        
+
     }
 
     public static String getCurrency() {
@@ -34,7 +34,7 @@ public class DataPoint {
     public String getEmail() {
 
         //This will be the only way to get an email out of this class
-        Account [] possibleEmails = getEmails();
+        String [] possibleEmails = getEmails();
         email = setPrimary(possibleEmails);
         setEmail(email);
         return email;
@@ -49,7 +49,7 @@ public class DataPoint {
         this.main = main;
     }
 
-    private Account[] getEmails() {
+    private String[] getEmails() {
         Account[] accounts = null;
         int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 0;
         // Here, thisActivity is the current activity
@@ -61,34 +61,33 @@ public class DataPoint {
                     MY_PERMISSIONS_REQUEST_READ_CONTACTS);
         }
 
-        String possibleEmail = "";
+        String possibleEmails[] = new String[accounts.length];
         try {
 
             accounts = AccountManager.get(main).getAccountsByType("com.google");
-            for (Account account : accounts) {
-
-                possibleEmail += " --> " + account.name + " : " + account.type + " , \n";
-
-
+            int i = 0;
+            for(Account account: accounts){
+                possibleEmails[i] = account.name;
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
         Log.i("EMAILS", " " + accounts.length);
-        return accounts;
+        return possibleEmails;
     }
 
     //Alert Window for selecting which email to use
-    private String setPrimary(Account[] accounts) {
+    private String setPrimary(String[] accounts) {
         final String[] primary = {""};
         CharSequence[] values = new CharSequence[accounts.length];
         int i = 0; //counter
 
         //Grabs all the email addresses from array of accounts
-        for (Account account : accounts) {
-            CharSequence accountName = account.name;
+        for (String account : accounts) {
+            CharSequence accountName = account;
             values[i] = accountName;
             i++;
         }
