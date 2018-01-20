@@ -25,7 +25,7 @@ public class DataPoint {
 
     }
 
-    public static String getCurrency() {
+    public String getCurrency() {
         return currency;
     }
 

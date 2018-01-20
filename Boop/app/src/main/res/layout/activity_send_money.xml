@@ -7,23 +7,6 @@
   android:layout_height="match_parent"
   android:background="@color/dark_gray"
   tools:context="com.example.uofthacks.boop.SendMoneyActivity">
-
-  <Button
-    android:id="@+id/button"
-    android:layout_width="73dp"
-    android:layout_height="72dp"
-    android:layout_marginBottom="28dp"
-    android:background="@drawable/button_background"
-    android:onClick="onButtonClick"
-    android:text="Recieve Money"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.758"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    tools:ignore="MissingConstraints"
-    />
   <Button
     android:id="@+id/confirmButton"
     android:layout_width="73dp"

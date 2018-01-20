@@ -38,4 +38,12 @@ public class MoneyTransfer {
   public String getCurrency() {
     return currency;
   }
+
+  public String serialize(){
+    return email + " | " + phoneNumber + " | " + amount + " | " + currency;
+  }
+
+  public static MoneyTransfer deserialize(String input){
+    return null;
+  }
 }
