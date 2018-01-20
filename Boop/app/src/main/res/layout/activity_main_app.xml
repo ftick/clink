@@ -7,13 +7,27 @@
   android:layout_height="match_parent"
   tools:context="com.example.uofthacks.boop.MainApp">
 
-  <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Hello World!"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>
+
+  <Button
+      android:id="@+id/confirmButton"
+      android:layout_width="73dp"
+      android:layout_height="72dp"
+      android:background="@drawable/button_background"
+      android:text="Button"
+      tools:ignore="MissingConstraints"
+      tools:layout_editor_absoluteX="156dp"
+      tools:layout_editor_absoluteY="314dp" />
+
+  <EditText
+      android:id="@+id/moneyAmount"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:ems="10"
+      android:inputType="number"
+      tools:layout_editor_absoluteX="84dp"
+      tools:layout_editor_absoluteY="231dp"
+      tools:ignore="MissingConstraints"
+      />
+
 
 </android.support.constraint.ConstraintLayout>
