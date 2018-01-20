@@ -16,8 +16,16 @@ public class DataPoint {
     //private String phoneNumber; todo implement phonenumber later
     private MainApp main;
     private static final String currency = "CAD";
-    private Double moneyAmount;
+    private double moneyAmount;
 
+
+    public DataPoint(){
+        
+    }
+
+    public static String getCurrency() {
+        return currency;
+    }
 
     private void setEmail(String email) {
         this.email = email;
@@ -31,7 +39,7 @@ public class DataPoint {
         setEmail(email);
         return email;
     }
-    public Double getAmount(EditText edit){
+    public double getAmount(EditText edit){
         moneyAmount = Double.parseDouble(edit.getText().toString());
         return moneyAmount;
     }
