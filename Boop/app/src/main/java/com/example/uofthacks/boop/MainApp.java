@@ -14,9 +14,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainApp extends AppCompatActivity {
+public class MainApp extends AppCompatActivity implements NfcAdapter.CreateNdefMessageCallback{
   private static final String TAG = "NFC";
   private NfcAdapter nfcAdapter;
+  private PendingIntent nfcPendingIntent;
 
 
   @Override
@@ -26,7 +27,7 @@ public class MainApp extends AppCompatActivity {
 
     // initialize NFC
     nfcAdapter = NfcAdapter.getDefaultAdapter(this);
-    //nfcPendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, this.getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+    nfcAdapter.setNdefPushMessageCallback(this, this);
   }
 
   @Override
@@ -67,11 +68,14 @@ public class MainApp extends AppCompatActivity {
     else{
       // SEND FILES HERE!
       Toast.makeText(this, "SENDING FILE!!", Toast.LENGTH_SHORT).show();
-
-      String message = "SAMPLE DEMO";
-      NdefRecord ndefRecord = NdefRecord.createMime("text/plain", message.getBytes());
-      NdefMessage ndefMessage = new NdefMessage(ndefRecord);
-      nfcAdapter.setNdefPushMessage(ndefMessage, this);
     }
+  }
+
+  @Override
+  public NdefMessage createNdefMessage(NfcEvent event) {
+    String message = "SAMPLE DEMO";
+    NdefRecord ndefRecord = NdefRecord.createMime("text/plain", message.getBytes());
+    NdefMessage ndefMessage = new NdefMessage(ndefRecord);
+    return ndefMessage;
   }
 }
