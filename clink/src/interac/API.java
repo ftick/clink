@@ -1,3 +1,7 @@
+package interac;
+
+import okhttp3.*;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -8,15 +12,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
-import okhttp3.*;
-import org.apache.commons.codec.binary.Base64;
-
-public class Main {
+public class API {
 
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
@@ -292,7 +290,7 @@ public class Main {
 
     public static String encrypt(String secret, String salt) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
-        return new String(Base64.encodeBase64(md.digest(
+        return new String(Base64.getEncoder().encode(md.digest(
                 (salt + ':' + secret.substring(0,secret.indexOf("\n"))).getBytes())));
     }
 
@@ -311,7 +309,7 @@ public class Main {
     }
 
     public static void setup(){
-        Main ex = new Main();
+        API ex = new API();
 
         String salt = "dank";
         String secret = null;
@@ -340,13 +338,13 @@ public class Main {
 //        System.out.println(addRequest("Ian", "2267917415",100, "CAD");
 //        deleteAllContacts();
 
-        String response = addRequest("Ian", "2267917415",100, "CAD");
-        String refNum = findStr(response, "referenceNumber", false);
-        String url = findStr(response, "Url", false);
+//        String response = addRequest("Ian", "2267917415",100, "CAD");
+//        String refNum = findStr(response, "referenceNumber", false);
+//        String url = findStr(response, "Url", false);
 //        System.out.println(getRequest(refNum));
 
 //        System.out.println(response);
-        System.out.println(refNum);
-        System.out.println(url);
+//        System.out.println(refNum);
+//        System.out.println(url);
     }
 }
