@@ -16,7 +16,7 @@ import java.util.Base64;
 
 import okhttp3.*;
 
-public class Main {
+public class InteracAPI {
 
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
@@ -311,7 +311,7 @@ public class Main {
     }
 
     public static void setup(){
-        Main ex = new Main();
+        InteracAPI ex = new InteracAPI();
 
         String salt = "dank";
         String secret = null;
@@ -340,13 +340,13 @@ public class Main {
 //        System.out.println(addRequest("Ian", "2267917415",100, "CAD");
 //        deleteAllContacts();
 
-        String response = addRequest("Ian", "2267917415",100, "CAD");
-        String refNum = findStr(response, "referenceNumber", false);
-        String url = findStr(response, "Url", false);
+//        String response = addRequest("Ian", "2267917415",100, "CAD");
+//        String refNum = findStr(response, "referenceNumber", false);
+//        String url = findStr(response, "Url", false);
 //        System.out.println(getRequest(refNum));
 
 //        System.out.println(response);
-        System.out.println(refNum);
-        System.out.println(url);
+//        System.out.println(refNum);
+//        System.out.println(url);
     }
 }
