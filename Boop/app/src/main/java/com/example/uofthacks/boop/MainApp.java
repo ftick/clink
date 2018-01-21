@@ -22,7 +22,6 @@ public class MainApp extends AppCompatActivity{
       processIntent(getIntent());
     }
 
-
   }
 
   public void onSendButtonClick(View view) {

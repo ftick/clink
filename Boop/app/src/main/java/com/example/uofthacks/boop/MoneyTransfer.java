@@ -1,5 +1,7 @@
 package com.example.uofthacks.boop;
 
+import android.util.Log;
+
 /**
  * A class used to represent info about a money transfer
  * from a person.
@@ -94,10 +96,15 @@ public class MoneyTransfer {
    */
   public static MoneyTransfer deserialize(String input){
     MoneyTransfer transfer = new MoneyTransfer();
-    String[] tokens = input.split("|");
+    String[] tokens = input.split(" | ");
     transfer.setEmail(tokens[0].trim());
-    transfer.setAmount((double) Double.parseDouble(tokens[2].trim()));
-    transfer.setCurrency(tokens[3].trim());
+    try {
+      transfer.setAmount((double) Double.parseDouble(tokens[4].trim()));
+    } catch(NumberFormatException n) {
+      Log.d("sad",tokens[0]);
+      Log.d("sad",tokens[2]);
+    }
+    transfer.setCurrency(tokens[6].trim());
     transfer.setPhoneNumber(null);
     return transfer;
   }
