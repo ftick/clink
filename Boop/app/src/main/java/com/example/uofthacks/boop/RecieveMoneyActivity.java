@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
+import interac.API;
+
 
 public class RecieveMoneyActivity extends AppCompatActivity {
 
@@ -24,6 +26,8 @@ public class RecieveMoneyActivity extends AppCompatActivity {
     String data = getIntent().getStringExtra("account_info");
     textBox.setText(data);
     transfer = MoneyTransfer.deserialize(data);
+
+
   }
 
   public void onResume() {
