@@ -32,6 +32,7 @@ public class MainApp extends AppCompatActivity{
 
   public void recieveButtonClick(View view) {
     Intent intent = new Intent(this, RecieveMoneyActivity.class);
+    intent.putExtra("info", wasd);
     startActivity(intent);
   }
 
@@ -41,11 +42,14 @@ public class MainApp extends AppCompatActivity{
     // only one message sent during the beam
     NdefMessage msg = (NdefMessage) rawMsgs[0];
 
-    setContentView(R.layout.activity_recieve_money);
-    String accountData = new String(msg.getRecords()[0].getPayload()); //String that contains all data (email, amount, currency)
-      RecieveMoneyActivity controller = new RecieveMoneyActivity();
-    controller.showData(accountData);
 
+    //setContentView(R.layout.activity_recieve_money);
+    String accountData = new String(msg.getRecords()[0].getPayload()); //String that contains all data (email, amount, currency)
+    //RecieveMoneyActivity controller = new RecieveMoneyActivity();
+    //controller.showData(accountData);
+    Intent newIntent = new Intent(this, RecieveMoneyActivity.class);
+    newIntent.putExtra("account_info", accountData);
+    startActivity(newIntent);
     Log.d("HELLO", new String(msg.getRecords()[0].getPayload()));
 
   }
