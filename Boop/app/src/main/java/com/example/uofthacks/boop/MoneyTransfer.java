@@ -44,6 +44,12 @@ public class MoneyTransfer {
   }
 
   public static MoneyTransfer deserialize(String input){
-    return null;
+    MoneyTransfer transfer = new MoneyTransfer();
+    String[] tokens = input.split("|");
+    transfer.setEmail(tokens[0].trim());
+    transfer.setAmount((double) Double.parseDouble(tokens[2].trim()));
+    transfer.setCurrency(tokens[3].trim());
+    transfer.setPhoneNumber(null);
+    return transfer;
   }
 }

@@ -13,7 +13,8 @@ import android.widget.Toast;
 
 public class RecieveMoneyActivity extends AppCompatActivity {
 
-    private TextView textBox;
+  private TextView textBox;
+  private MoneyTransfer transfer;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class RecieveMoneyActivity extends AppCompatActivity {
     textBox = findViewById(R.id.textbox);
     String data = getIntent().getStringExtra("account_info");
     textBox.setText(data);
+    transfer = MoneyTransfer.deserialize(data);
   }
 
   public void onResume() {
@@ -31,8 +33,5 @@ public class RecieveMoneyActivity extends AppCompatActivity {
 
   public void showData(String data){
       textBox.setText(data);
-          
-
   }
-
 }
