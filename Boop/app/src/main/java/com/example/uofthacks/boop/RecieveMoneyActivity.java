@@ -20,8 +20,8 @@ public class RecieveMoneyActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_recieve_money);
     textBox = findViewById(R.id.textbox);
-
-
+    String data = getIntent().getStringExtra("account_info");
+    textBox.setText(data);
   }
 
   public void onResume() {

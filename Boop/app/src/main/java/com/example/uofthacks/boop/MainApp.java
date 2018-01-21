@@ -32,7 +32,6 @@ public class MainApp extends AppCompatActivity{
 
   public void recieveButtonClick(View view) {
     Intent intent = new Intent(this, RecieveMoneyActivity.class);
-    intent.putExtra("info", wasd);
     startActivity(intent);
   }
 
