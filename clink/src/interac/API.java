@@ -1,3 +1,7 @@
+package interac;
+
+import okhttp3.*;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -8,15 +12,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.Base64;
+import java.util.*;
 
-import okhttp3.*;
-
-public class InteracAPI {
+public class API {
 
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
@@ -311,7 +309,7 @@ public class InteracAPI {
     }
 
     public static void setup(){
-        InteracAPI ex = new InteracAPI();
+        API ex = new API();
 
         String salt = "dank";
         String secret = null;
