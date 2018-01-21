@@ -1,5 +1,7 @@
 package com.example.uofthacks.boop;
 
+import static android.nfc.NdefRecord.createMime;
+
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
@@ -78,27 +80,19 @@ public class SendMoneyActivity extends AppCompatActivity implements NfcAdapter.C
     transferInfo.setCurrency(messageData.getCurrency());
     transferInfo.setEmail(email);
 
-
-    NdefRecord ndefRecord = NdefRecord.createTextRecord("en", transferInfo.serialize()); //Creates a text record
-
-    Toast.makeText(this,
-        "Sending transfer of " + messageData.getCurrency() +
-            " " + messageData.getCurrency(), Toast.LENGTH_SHORT).show();
-
+    //NdefRecord ndefRecord = NdefRecord.createTextRecord("en", transferInfo.serialize()); //Creates a text record
+    NdefMessage msg = new NdefMessage(
+        new NdefRecord[] { createMime(
+              "application/com.example.uofthacks.boop", transferInfo.serialize().getBytes()),
+              NdefRecord.createApplicationRecord("com.example.android.beam")});
     status = 2; //for debugging dont remove
-    output.setText(status);
-    return new NdefMessage(ndefRecord);
+    //return new NdefMessage(ndefRecord);
+    return msg;
   }
 
   @Override
   public void onNdefPushComplete(NfcEvent event) {
     status = 3;
-    Toast.makeText(this,
-        "Recipient received " + messageData.getCurrency() +
-            " " + messageData.getCurrency(), Toast.LENGTH_SHORT
-    ).show();
-    output.setText("Recipient received " + messageData.getCurrency() +
-        " " + messageData.getCurrency());
     status = 0;
   }
 }
