@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="clink:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/clink_jar</output-path>
+    <output-path>$PROJECT_DIR$/out/artifacts/clink.jar</output-path>
     <root id="archive" name="clink.jar">
       <element id="module-output" name="clink" />
     </root>
