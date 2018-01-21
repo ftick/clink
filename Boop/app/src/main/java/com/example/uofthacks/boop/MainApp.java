@@ -43,7 +43,8 @@ public class MainApp extends AppCompatActivity{
 
     setContentView(R.layout.activity_recieve_money);
     String accountData = new String(msg.getRecords()[0].getPayload()); //String that contains all data (email, amount, currency)
-    RecieveMoneyActivity.showData(accountData);
+      RecieveMoneyActivity controller = new RecieveMoneyActivity();
+    controller.showData(accountData);
 
     Log.d("HELLO", new String(msg.getRecords()[0].getPayload()));
 
