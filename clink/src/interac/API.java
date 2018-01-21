@@ -2,9 +2,9 @@ package interac;
 
 import okhttp3.*;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+//import java.io.BufferedReader;
+//import java.io.File;
+//import java.io.FileReader;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -24,7 +24,8 @@ public class API {
 
     private static final String ACCESS_ID = "CA1TAvtkKUWraZ5y";
     private static final String REGISTRATION_ID = "CA1ARQUfZMPeZZGs";
-    private static final String SECRET_KEY = "2HQXvdnVigQLqiNoF0kN+ikJhwv4WB9r7ZwToK4GLrE=";
+    private static String SALT_KEY = "dank";
+    private static String SECRET_KEY = "2QRwAAe2y1nRL3F5EMp4p1cj4AhmcLQ9EvlB63f_tNk";
 
     private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'");
 
@@ -90,12 +91,12 @@ public class API {
         String type = "sms";
         if(handle.contains("@")) type = "email";
 
-        return "{\"contactName\": \"" + name + "\","
-                + "  \"language\": \"en\","
-                + "  \"notificationPreferences\": [{"
-                + "      \"handle\": \"" + handle + "\","
-                + "      \"handleType\": \"" + type + "\","
-                + "      \"active\": true"
+        return "{\"contactName\": \"" + name + "\",\n"
+                + "  \"language\": \"en\",\n"
+                + "  \"notificationPreferences\": [{\n"
+                + "      \"handle\": \"" + handle + "\",\n"
+                + "      \"handleType\": \"" + type + "\",\n"
+                + "      \"active\": true\n"
                 + "}]}";
     }
 
@@ -125,6 +126,18 @@ public class API {
                 + "  \"fulfillAmount\": 20,"
                 + "  \"responderMessage\": \"string\","
                 + "  \"notificationStatus\": 0}";
+    }
+
+    static String oneJson(String contact, double amount, String currency){
+        return "{\n" +
+                "  \"sourceMoneyRequestId\": \"sourceid" + generateRequestId() + "\",\n" +
+                "  \"requestedFrom\": " + contact + ",\n" +
+                "  \"amount\": " + Double.toString(amount) + ",\n" +
+                "  \"currency\": \"" + currency + "\",\n" +
+                "  \"editableFulfillAmount\": false,\n" +
+                "  \"expiryDate\": \"2018-02-10T00:00:00.000Z\",\n" +
+                "  \"supressResponderNotifications\": false\n" +
+                "}";
     }
 
     ///// TODO: REST METHODS
@@ -212,7 +225,7 @@ public class API {
         while(removeContact(firstId)) {
             if(DEBUG) System.out.println("DELETE " + firstId);
             contacts = getContact(5, 10);
-            System.out.println(contacts);
+            if(DEBUG) System.out.println(contacts);
             if(contacts.equals("[]")) break;
             firstId = contacts.substring(contacts.indexOf(":") + 2);
             firstId = firstId.substring(0, firstId.indexOf("\""));
@@ -222,7 +235,7 @@ public class API {
     ///// TODO: REQUESTS
 
     public static String addRequest(String name, String handle, double amount, String currency){
-        String json = oneJson(contactJson(name, handle), amount, currency, 10);
+        String json = oneJson(contactJson(name, handle), amount, currency);
         Map<String,String> map = addContactHeaders();
 
         if(DEBUG) System.out.println(json);
@@ -268,30 +281,30 @@ public class API {
 
     ///// TODO: SETUP
 
-    public static String importSecret(String filepath){
-        try {
-            File file = new File(filepath);
-            FileReader fileReader = new FileReader(file);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            StringBuffer stringBuffer = new StringBuffer();
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                stringBuffer.append(line);
-                stringBuffer.append("\n");
-            }
-            fileReader.close();
-            if(DEBUG) System.out.println("NOENCRYPT: " + stringBuffer.toString());
-            return stringBuffer.toString();//.substring(2);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "Failed to import secret";
-    }
+//    public static String importSecret(String filepath){
+//        try {
+//            File file = new File(filepath);
+//            FileReader fileReader = new FileReader(file);
+//            BufferedReader bufferedReader = new BufferedReader(fileReader);
+//            StringBuffer stringBuffer = new StringBuffer();
+//            String line;
+//            while ((line = bufferedReader.readLine()) != null) {
+//                stringBuffer.append(line);
+//                stringBuffer.append("\n");
+//            }
+//            fileReader.close();
+//            if(DEBUG) System.out.println("NOENCRYPT: " + stringBuffer.toString());
+//            return stringBuffer.toString();//.substring(2);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return "Failed to import secret";
+//    }
 
     public static String encrypt(String secret, String salt) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
         return new String(Base64.getEncoder().encode(md.digest(
-                (salt + ':' + secret.substring(0,secret.indexOf("\n"))).getBytes())));
+                (salt + ':' + secret).getBytes())));
     }
 
     public static String generateAccessToken(String secret, String salt){
@@ -311,17 +324,16 @@ public class API {
     public static void setup(){
         API ex = new API();
 
-        String salt = "dank";
         String secret = null;
         try {
-            secret = encrypt(importSecret("secret.txt"), salt);
+            secret = encrypt(SECRET_KEY, SALT_KEY);//importSecret("secret.txt"), salt);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
 
         if(DEBUG) System.out.println("SECRET: " + secret);
 
-        String accessToken = generateAccessToken(secret, salt);
+        String accessToken = generateAccessToken(secret, SALT_KEY);
         if(DEBUG) System.out.println("TOKEN: " + accessToken);
         accessToken = findStr(accessToken, "access_token", false);
         if(DEBUG) System.out.println("TOKEN: Bearer " + accessToken);
@@ -335,7 +347,7 @@ public class API {
         setup();
 
 //        System.out.println(addContact("testName1", "2267917415"));
-//        System.out.println(addRequest("Ian", "2267917415",100, "CAD");
+//        System.out.println(addRequest("Ian", "2267917415",100, "CAD"));
 //        deleteAllContacts();
 
 //        String response = addRequest("Ian", "2267917415",100, "CAD");
