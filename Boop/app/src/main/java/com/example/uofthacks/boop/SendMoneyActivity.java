@@ -84,7 +84,7 @@ public class SendMoneyActivity extends AppCompatActivity implements NfcAdapter.C
     NdefMessage msg = new NdefMessage(
         new NdefRecord[] { createMime(
               "application/com.example.uofthacks.boop", transferInfo.serialize().getBytes()),
-              NdefRecord.createApplicationRecord("com.example.android.beam")});
+              NdefRecord.createApplicationRecord("com.example.uofthacks.boop")});
     status = 2; //for debugging dont remove
     //return new NdefMessage(ndefRecord);
     return msg;
