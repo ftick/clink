@@ -12,29 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f0aaa30-a4d0-4810-a13c-66672fd7b85c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/access-bridge-64.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/cldrdata.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/clink.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/commons-codec-1.11.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/dnsns.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/jaccess.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/jfxrt.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/localedata.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/meta-index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/nashorn.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/sunec.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/sunjce_provider.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/sunmscapi.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/sunpkcs11.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/zipfs.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/MainApp.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/MainApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/MoneyTransfer.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/MoneyTransfer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/RecieveMoneyActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/RecieveMoneyActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_app.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_app.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_send_money.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_send_money.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -81,7 +60,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_send_money.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="activity_send_money.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_send_money.xml">
           <provider selected="true" editor-type-id="android-designer2">
             <state />
@@ -97,36 +76,36 @@
       <file leaf-file-name="SendMoneyActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/SendMoneyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1500">
+            <state relative-caret-position="1140">
               <caret line="94" column="15" lean-forward="false" selection-start-line="94" selection-start-column="15" selection-end-line="94" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RecieveMoneyActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RecieveMoneyActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/RecieveMoneyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43">
-              <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+            <state relative-caret-position="-167">
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1628#1629#0" expanded="true" />
-                <element signature="e#1659#1660#0" expanded="true" />
+                <element signature="e#1917#1918#0" expanded="true" />
+                <element signature="e#1948#1949#0" expanded="true" />
                 <element signature="method#doGetRequest#0;class#RecieveMoneyActivity#0" expanded="false" />
-                <element signature="e#2094#2354#0" expanded="true" />
-                <element signature="e#2353#2354#0" expanded="true" />
+                <element signature="e#2383#2643#0" expanded="true" />
+                <element signature="e#2642#2643#0" expanded="true" />
                 <element signature="method#doPostRequest#0;class#RecieveMoneyActivity#0" expanded="false" />
-                <element signature="method#onFailure#0;class#3082:3916" expanded="false" />
-                <element signature="e#3229#3491#0" expanded="true" />
-                <element signature="e#3490#3491#0" expanded="true" />
+                <element signature="method#onFailure#0;class#3371:4205" expanded="false" />
+                <element signature="e#3518#3780#0" expanded="true" />
+                <element signature="e#3779#3780#0" expanded="true" />
                 <element signature="method#findStr#0;class#RecieveMoneyActivity#0" expanded="false" />
                 <element signature="method#createBaseHeaders#0;class#RecieveMoneyActivity#0" expanded="false" />
                 <element signature="method#addContactHeaders#0;class#RecieveMoneyActivity#0" expanded="false" />
                 <element signature="method#contactJson#0;class#RecieveMoneyActivity#0" expanded="false" />
                 <element signature="method#oneJson#0;class#RecieveMoneyActivity#0" expanded="false" />
                 <element signature="method#addRequest#0;class#RecieveMoneyActivity#0" expanded="false" />
-                <element signature="e#7732#7748#0" expanded="true" />
+                <element signature="e#8021#8037#0" expanded="true" />
                 <element signature="method#lastPart#0;class#RecieveMoneyActivity#0" expanded="false" />
                 <element signature="method#encrypt#0;class#RecieveMoneyActivity#0" expanded="false" />
               </folding>
@@ -137,7 +116,7 @@
       <file leaf-file-name="MoneyTransfer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/MoneyTransfer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1680">
+            <state relative-caret-position="404">
               <caret line="100" column="9" lean-forward="false" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
               <folding />
             </state>
@@ -1998,9 +1977,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/MoneyTransfer.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/MainApp.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/RecieveMoneyActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_app.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_send_money.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/RecieveMoneyActivity.java" />
       </list>
     </option>
   </component>
@@ -2213,7 +2192,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../clink" />
-    <property name="device.picker.selection" value="LGH831df4eadb7 LGH873db58c757" />
+    <property name="device.picker.selection" value="LGH873db58c757" />
     <property name="sync.plugin.last.upgrade.timestamp" value="1516518408470" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
     <property name="android.profiler.active" value="true" />
@@ -2306,7 +2285,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516539858405" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516543251714" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2354,7 +2333,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516539858405" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516543251714" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2537,7 +2516,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516539858409" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516543251718" />
       </method>
     </configuration>
     <list size="1">
@@ -2581,11 +2560,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60647184" sideWeight="0.50193477" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Logcat" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16492693" sideWeight="0.49806523" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16492693" sideWeight="0.49806523" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2665,22 +2645,22 @@
           <caret line="25" column="54" lean-forward="false" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1628#1629#0" expanded="true" />
-            <element signature="e#1659#1660#0" expanded="true" />
+            <element signature="e#1917#1918#0" expanded="true" />
+            <element signature="e#1948#1949#0" expanded="true" />
             <element signature="method#doGetRequest#0;class#RecieveMoneyActivity#0" expanded="false" />
-            <element signature="e#2094#2354#0" expanded="true" />
-            <element signature="e#2353#2354#0" expanded="true" />
+            <element signature="e#2383#2643#0" expanded="true" />
+            <element signature="e#2642#2643#0" expanded="true" />
             <element signature="method#doPostRequest#0;class#RecieveMoneyActivity#0" expanded="false" />
-            <element signature="method#onFailure#0;class#3082:3916" expanded="false" />
-            <element signature="e#3229#3491#0" expanded="true" />
-            <element signature="e#3490#3491#0" expanded="true" />
+            <element signature="method#onFailure#0;class#3371:4205" expanded="false" />
+            <element signature="e#3518#3780#0" expanded="true" />
+            <element signature="e#3779#3780#0" expanded="true" />
             <element signature="method#findStr#0;class#RecieveMoneyActivity#0" expanded="false" />
             <element signature="method#createBaseHeaders#0;class#RecieveMoneyActivity#0" expanded="false" />
             <element signature="method#addContactHeaders#0;class#RecieveMoneyActivity#0" expanded="false" />
             <element signature="method#contactJson#0;class#RecieveMoneyActivity#0" expanded="false" />
             <element signature="method#oneJson#0;class#RecieveMoneyActivity#0" expanded="false" />
             <element signature="method#addRequest#0;class#RecieveMoneyActivity#0" expanded="false" />
-            <element signature="e#7732#7748#0" expanded="true" />
+            <element signature="e#8021#8037#0" expanded="true" />
             <element signature="method#lastPart#0;class#RecieveMoneyActivity#0" expanded="false" />
             <element signature="method#encrypt#0;class#RecieveMoneyActivity#0" expanded="false" />
           </folding>
@@ -2717,22 +2697,22 @@
           <caret line="29" column="28" lean-forward="false" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1628#1629#0" expanded="true" />
-            <element signature="e#1659#1660#0" expanded="true" />
+            <element signature="e#1917#1918#0" expanded="true" />
+            <element signature="e#1948#1949#0" expanded="true" />
             <element signature="method#doGetRequest#0;class#RecieveMoneyActivity#0" expanded="false" />
-            <element signature="e#2094#2354#0" expanded="true" />
-            <element signature="e#2353#2354#0" expanded="true" />
+            <element signature="e#2383#2643#0" expanded="true" />
+            <element signature="e#2642#2643#0" expanded="true" />
             <element signature="method#doPostRequest#0;class#RecieveMoneyActivity#0" expanded="false" />
-            <element signature="method#onFailure#0;class#3082:3916" expanded="false" />
-            <element signature="e#3229#3491#0" expanded="true" />
-            <element signature="e#3490#3491#0" expanded="true" />
+            <element signature="method#onFailure#0;class#3371:4205" expanded="false" />
+            <element signature="e#3518#3780#0" expanded="true" />
+            <element signature="e#3779#3780#0" expanded="true" />
             <element signature="method#findStr#0;class#RecieveMoneyActivity#0" expanded="false" />
             <element signature="method#createBaseHeaders#0;class#RecieveMoneyActivity#0" expanded="false" />
             <element signature="method#addContactHeaders#0;class#RecieveMoneyActivity#0" expanded="false" />
             <element signature="method#contactJson#0;class#RecieveMoneyActivity#0" expanded="false" />
             <element signature="method#oneJson#0;class#RecieveMoneyActivity#0" expanded="false" />
             <element signature="method#addRequest#0;class#RecieveMoneyActivity#0" expanded="false" />
-            <element signature="e#7732#7748#0" expanded="true" />
+            <element signature="e#8021#8037#0" expanded="true" />
             <element signature="method#lastPart#0;class#RecieveMoneyActivity#0" expanded="false" />
             <element signature="method#encrypt#0;class#RecieveMoneyActivity#0" expanded="false" />
           </folding>
@@ -2870,50 +2850,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/MoneyTransfer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="100" column="9" lean-forward="false" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/SendMoneyActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="94" column="15" lean-forward="false" selection-start-line="94" selection-start-column="15" selection-end-line="94" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/RecieveMoneyActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1628#1629#0" expanded="true" />
-            <element signature="e#1659#1660#0" expanded="true" />
-            <element signature="method#doGetRequest#0;class#RecieveMoneyActivity#0" expanded="false" />
-            <element signature="e#2094#2354#0" expanded="true" />
-            <element signature="e#2353#2354#0" expanded="true" />
-            <element signature="method#doPostRequest#0;class#RecieveMoneyActivity#0" expanded="false" />
-            <element signature="method#onFailure#0;class#3082:3916" expanded="false" />
-            <element signature="e#3229#3491#0" expanded="true" />
-            <element signature="e#3490#3491#0" expanded="true" />
-            <element signature="method#findStr#0;class#RecieveMoneyActivity#0" expanded="false" />
-            <element signature="method#createBaseHeaders#0;class#RecieveMoneyActivity#0" expanded="false" />
-            <element signature="method#addContactHeaders#0;class#RecieveMoneyActivity#0" expanded="false" />
-            <element signature="method#contactJson#0;class#RecieveMoneyActivity#0" expanded="false" />
-            <element signature="method#oneJson#0;class#RecieveMoneyActivity#0" expanded="false" />
-            <element signature="method#addRequest#0;class#RecieveMoneyActivity#0" expanded="false" />
-            <element signature="e#7732#7748#0" expanded="true" />
-            <element signature="method#lastPart#0;class#RecieveMoneyActivity#0" expanded="false" />
-            <element signature="method#encrypt#0;class#RecieveMoneyActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -2949,6 +2885,50 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/SendMoneyActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="94" column="15" lean-forward="false" selection-start-line="94" selection-start-column="15" selection-end-line="94" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/MoneyTransfer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="100" column="9" lean-forward="false" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/RecieveMoneyActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-167">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1917#1918#0" expanded="true" />
+            <element signature="e#1948#1949#0" expanded="true" />
+            <element signature="method#doGetRequest#0;class#RecieveMoneyActivity#0" expanded="false" />
+            <element signature="e#2383#2643#0" expanded="true" />
+            <element signature="e#2642#2643#0" expanded="true" />
+            <element signature="method#doPostRequest#0;class#RecieveMoneyActivity#0" expanded="false" />
+            <element signature="method#onFailure#0;class#3371:4205" expanded="false" />
+            <element signature="e#3518#3780#0" expanded="true" />
+            <element signature="e#3779#3780#0" expanded="true" />
+            <element signature="method#findStr#0;class#RecieveMoneyActivity#0" expanded="false" />
+            <element signature="method#createBaseHeaders#0;class#RecieveMoneyActivity#0" expanded="false" />
+            <element signature="method#addContactHeaders#0;class#RecieveMoneyActivity#0" expanded="false" />
+            <element signature="method#contactJson#0;class#RecieveMoneyActivity#0" expanded="false" />
+            <element signature="method#oneJson#0;class#RecieveMoneyActivity#0" expanded="false" />
+            <element signature="method#addRequest#0;class#RecieveMoneyActivity#0" expanded="false" />
+            <element signature="e#8021#8037#0" expanded="true" />
+            <element signature="method#lastPart#0;class#RecieveMoneyActivity#0" expanded="false" />
+            <element signature="method#encrypt#0;class#RecieveMoneyActivity#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

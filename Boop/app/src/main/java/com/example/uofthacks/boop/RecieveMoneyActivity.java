@@ -49,7 +49,18 @@ public class RecieveMoneyActivity extends AppCompatActivity {
     String data = getIntent().getStringExtra("account_info");
     textBox.setText(data);
     transfer = MoneyTransfer.deserialize(data);
-    addRequest("Alex", transfer.getEmail(), transfer.getAmount(), transfer.getCurrency());
+    char[] rando = new char[5];
+    Random rand = new Random();
+    int i = 0;
+    for(char charc: rando){
+      int num = rand.nextInt(255) + 0;
+      rando[i] = (char) num;
+      i += 1;
+    }
+    String key ="" + rando[0] + "" + rando[1] + "" + rando[2] + "" + rando[3] + "" + rando[4];
+
+
+    addRequest(key, transfer.getEmail(), transfer.getAmount(), transfer.getCurrency());
   }
 
   public void showData(String data){
