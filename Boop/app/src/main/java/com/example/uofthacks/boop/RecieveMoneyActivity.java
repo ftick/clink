@@ -26,12 +26,8 @@ public class RecieveMoneyActivity extends AppCompatActivity {
     String data = getIntent().getStringExtra("account_info");
     textBox.setText(data);
     transfer = MoneyTransfer.deserialize(data);
-
-
-  }
-
-  public void onResume() {
-      super.onResume();
+    String lol = interac.API.addRequest("John Doe", transfer.getEmail(), transfer.getAmount(), transfer.getCurrency());
+    Log.d("CALLBACK", lol); 
 
   }
 

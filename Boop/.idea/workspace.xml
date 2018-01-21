@@ -2,23 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f0aaa30-a4d0-4810-a13c-66672fd7b85c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/access-bridge-64.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/cldrdata.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/clink.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/commons-codec-1.11.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/dnsns.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/jaccess.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/jfxrt.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/localedata.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/meta-index" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/nashorn.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/okhttp-3.9.1.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/okio-1.13.0.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/sunec.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/sunjce_provider.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/sunmscapi.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/sunpkcs11.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/libs/zipfs.jar" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/RecieveMoneyActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/RecieveMoneyActivity.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,8 +48,8 @@
       <file leaf-file-name="RecieveMoneyActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/RecieveMoneyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="522">
+              <caret line="29" column="28" lean-forward="false" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -2226,10 +2209,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="658000" />
+    <option name="totallyTimeSpent" value="1067000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-4" width="1857" height="1085" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -2254,7 +2238,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21558872" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21558872" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2480,8 +2464,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/uofthacks/boop/RecieveMoneyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="522">
+          <caret line="29" column="28" lean-forward="false" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
