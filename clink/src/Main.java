@@ -12,9 +12,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.Base64;
 
 import okhttp3.*;
-import org.apache.commons.codec.binary.Base64;
 
 public class Main {
 
@@ -292,7 +292,7 @@ public class Main {
 
     public static String encrypt(String secret, String salt) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
-        return new String(Base64.encodeBase64(md.digest(
+        return new String(Base64.getEncoder().encode(md.digest(
                 (salt + ':' + secret.substring(0,secret.indexOf("\n"))).getBytes())));
     }
 
